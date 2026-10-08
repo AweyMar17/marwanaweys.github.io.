@@ -642,7 +642,7 @@
         maker: "Amouage",
         title: "Interlude Man",
         scentCategory: "woody",
-        itemPrice: 15.00,
+        rates: { "2ml": 12.00, "5ml": 24.00, "10ml": 42.00, "Full": 325.00 },
         tagText: "Best Seller",
         notesInfo: "Top: Oregano, Pepper | Heart: Amber, Incense | Base: Leather, Oud",
         labelName: "Interlude Man"
@@ -652,7 +652,7 @@
         maker: "Maison Francis Kurkdjian",
         title: "Grand Soir",
         scentCategory: "ambery",
-        itemPrice: 18.00,
+        rates: { "2ml": 11.00, "5ml": 21.00, "10ml": 38.00, "Full": 215.00 },
         tagText: "Popular",
         notesInfo: "Top: Amber | Heart: Tonka Bean, Vanilla | Base: Labdanum, Benzoin",
         labelName: "Grand Soir"
@@ -662,7 +662,7 @@
         maker: "Xerjoff",
         title: "Naxos",
         scentCategory: "gourmand",
-        itemPrice: 16.50,
+        rates: { "2ml": 10.00, "5ml": 19.00, "10ml": 35.00, "Full": 245.00 },
         tagText: "Staff Pick",
         notesInfo: "Top: Lavender, Bergamot | Heart: Honey, Cinnamon | Base: Tobacco, Vanilla",
         labelName: "Naxos"
@@ -672,7 +672,7 @@
         maker: "Creed",
         title: "Aventus",
         scentCategory: "fresh",
-        itemPrice: 22.00,
+        rates: { "2ml": 14.00, "5ml": 28.00, "10ml": 49.00, "Full": 295.00 },
         tagText: "Iconic",
         notesInfo: "Top: Lemon, Pink Pepper | Heart: Pineapple, Jasmine | Base: Birch, Cedar",
         labelName: "Aventus"
@@ -704,19 +704,35 @@
             '<div>' +
               '<div class="product-brand">' + currentItem.maker + '</div>' +
               '<h3 class="product-title">' + currentItem.title + '</h3>' +
-              '<div class="product-price">$' + currentItem.itemPrice.toFixed(2) + '</div>' +
+              '<div class="product-price" id="priceTag-' + currentItem.itemId + '">€' + currentItem.rates["2ml"].toFixed(2) + '</div>' +
               '<div class="product-notes">' + currentItem.notesInfo + '</div>' +
               '<div class="size-selector">' +
-                '<button class="size-btn active">2ml</button>' +
-                '<button class="size-btn">5ml</button>' +
-                '<button class="size-btn">10ml</button>' +
-                '<button class="size-btn">Full</button>' +
+                '<button class="size-btn active" onclick="updateItemPrice(' + currentItem.itemId + ', \'2ml\', this)">2ml</button>' +
+                '<button class="size-btn" onclick="updateItemPrice(' + currentItem.itemId + ', \'5ml\', this)">5ml</button>' +
+                '<button class="size-btn" onclick="updateItemPrice(' + currentItem.itemId + ', \'10ml\', this)">10ml</button>' +
+                '<button class="size-btn" onclick="updateItemPrice(' + currentItem.itemId + ', \'Full\', this)">Full</button>' +
               '</div>' +
             '</div>' +
             '<button class="btn-add-cart" onclick="handleAddToCartClick()">Add to Cart</button>';
 
           newCard.innerHTML = cardInnerHtml;
           displayBox.appendChild(newCard);
+        }
+      }
+    }
+
+    function updateItemPrice(idNumber, chosenVolume, btnElement) {
+      for (var p = 0; p < itemsList.length; p++) {
+        if (itemsList[p].itemId === idNumber) {
+          var priceElement = document.getElementById('priceTag-' + idNumber);
+          priceElement.innerText = '€' + itemsList[p].rates[chosenVolume].toFixed(2);
+          
+          var sizeButtons = btnElement.parentElement.querySelectorAll('.size-btn');
+          for (var b = 0; b < sizeButtons.length; b++) {
+            sizeButtons[b].classList.remove('active');
+          }
+          btnElement.classList.add('active');
+          break;
         }
       }
     }
