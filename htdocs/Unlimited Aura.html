@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlimited Aura | Rare & Niche Fragrances</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Cormorant:ital,wght@1,300&family=Inter:wght@300;400&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #0D0E11;
+      --bg-card: #181A20;
+      --text-primary: #F3F4F6;
+      --text-secondary: #9CA3AF;
+      --accent: #06B6D4;
+      --border-color: #2D3748;
+      
+      --font-headline: 'Cinzel', serif;
+      --font-heading: 'Montserrat', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-italic: 'Cormorant', serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    button {
+      cursor: pointer;
+      font-family: var(--font-heading);
+      border: none;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: var(--bg-body);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+    }
+
+    .logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      max-width: 120px;
+      object-fit: contain;
+      border-radius: 4px;
+      background-color: var(--bg-card);
+    }
+
+    .logo {
+      text-align: left;
+    }
+
+    .logo-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 2px;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+
+    .logo-subtitle {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .cart-btn {
+      background: transparent;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    .cart-badge {
+      background-color: var(--accent);
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 2px 6px;
+      margin-left: 4px;
+    }
+
+    .btn-primary {
+      background-color: var(--text-primary);
+      color: var(--bg-body);
+      padding: 10px 22px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent);
+      color: var(--bg-body);
+    }
+
+    .hero {
+      padding: 90px 20px;
+      text-align: center;
+      background: radial-gradient(circle at center, rgba(6, 186, 212, 0.08) 0%, rgba(13, 14, 17, 1) 70%);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-tagline {
+      font-family: var(--font-italic);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-headline);
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--text-primary);
+    }
+
+    .hero p {
+      color: var(--text-secondary);
+      max-width: 550px;
+      margin: 0 auto 30px auto;
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    .trust-bar {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-color);
+      background-color: var(--bg-card);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .section-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+      font-weight: 300;
+    }
+
+    .categories-section {
+      padding: 60px 0;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .category-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 30px 20px;
+      text-align: center;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .category-card:hover, .category-card.active {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .category-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+      color: var(--text-primary);
+    }
+
+    .category-card p {
+      font-family: var(--font-italic);
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    .products-section {
+      padding: 40px 0 80px 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: rgba(6, 186, 212, 0.15);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-family: var(--font-heading);
+      padding: 4px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--accent);
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .product-image-box {
+      width: 100%;
+      height: 200px;
+      background-color: #232730;
+      border: 1px solid var(--border-color);
+      margin-bottom: 15px;
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+    }
+
+    .product-image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image-box img {
+      transform: scale(1.05);
+    }
+
+    .product-brand {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+    }
+
+    .product-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      margin: 2px 0 8px 0;
+      color: var(--text-primary);
+    }
+
+    .product-price {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .product-notes {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      height: 38px;
+    }
+
+    .size-selector {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 15px;
+    }
+
+    .size-btn {
+      flex: 1;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 4px 0;
+      font-size: 0.75rem;
+      border-radius: 3px;
+    }
+
+    .size-btn.active, .size-btn:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+      background-color: rgba(6, 186, 212, 0.1);
+    }
+
+    .btn-add-cart {
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid var(--text-primary);
+      color: var(--text-primary);
+      padding: 10px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-add-cart:hover {
+      background-color: var(--text-primary);
+      color: var(--bg-body);
+    }
+
+    .quiz-banner {
+      background: linear-gradient(135deg, #181A20 0%, #0D0E11 100%);
+      border: 1px solid var(--border-color);
+      padding: 50px 20px;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 80px;
+    }
+
+    .quiz-banner h2 {
+      font-family: var(--font-headline);
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .quiz-banner p {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 40px;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      padding: 60px 0 20px 0;
+      font-size: 0.85rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      color: var(--text-secondary);
+      margin-top: 15px;
+      font-weight: 300;
+      max-width: 300px;
+    }
+
+    .footer-column h4 {
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 10px;
+    }
+
+    .footer-column a {
+      color: var(--text-secondary);
+    }
+
+    .footer-column a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-color);
+      padding-top: 20px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .trust-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <img src="img/logo%20website.jpg" alt="Unlimited Aura" class="logo-img" onerror="this.style.display='none'">
+        <div class="logo">
+          <div class="logo-title">Unlimited Aura</div>
+          <div class="logo-subtitle">Eau de Parfum</div>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#catalog">Discoveries</a></li>
+        <li><a href="#catalog">Decants</a></li>
+        <li><a href="#catalog">Full Bottles</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn">Cart <span class="cart-badge" id="cartCounterDisplay">0</span></button>
+        <button class="btn-primary">Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tagline">Authentic Niche Fragrances</div>
+      <h1>Express Your Aura With Unique Scents</h1>
+      <p>Explore rare, handcrafted, and niche perfumes in full bottles or custom glass decants (2ml, 5ml, 10ml).</p>
+      <button class="btn-primary" onclick="document.getElementById('catalog').scrollIntoView({behavior: 'smooth'})">Shop The Collection</button>
+    </div>
+  </section>
+
+  <div class="trust-bar container">
+    <div class="trust-item">
+      <span>🛡️</span>
+      <span>100% Guaranteed Authentic</span>
+    </div>
+    <div class="trust-item">
+      <span>🧪</span>
+      <span>Custom Glass Decants</span>
+    </div>
+    <div class="trust-item">
+      <span>✈️</span>
+      <span>Express Worldwide Shipping</span>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="categories-section">
+      <h2 class="section-title">Explore By Olfactory Family</h2>
+      <p class="section-desc">Select a scent profile to filter our curated collection.</p>
+
+      <div class="category-grid">
+        <div class="category-card active" data-family="all">
+          <h3>All Scents</h3>
+          <p>Full Collection</p>
+        </div>
+        <div class="category-card" data-family="woody">
+          <h3>Woody & Smoky</h3>
+          <p>Oud, Cedar, Incense</p>
+        </div>
+        <div class="category-card" data-family="ambery">
+          <h3>Ambery & Warm</h3>
+          <p>Amber, Vanilla, Spice</p>
+        </div>
+        <div class="category-card" data-family="fresh">
+          <h3>Fresh Citrus</h3>
+          <p>Bergamot, Vetiver, Sea</p>
+        </div>
+        <div class="category-card" data-family="gourmand">
+          <h3>Gourmand</h3>
+          <p>Coffee, Tonka, Cacao</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section" id="catalog">
+      <h2 class="section-title">Featured Discoveries</h2>
+      <p class="section-desc">Hand-picked niche selections with visual scent profiles.</p>
+
+      <div class="product-grid" id="mainProductsContainer">
+      </div>
+    </section>
+
+    <section class="quiz-banner">
+      <h2>Find Your Signature Aura</h2>
+      <p>Answer 3 short questions and we'll match you with a tailored scent profile.</p>
+      <button class="btn-primary" id="openQuizBtn">Start Scent Quiz</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-title">Unlimited Aura</div>
+          <div class="logo-subtitle">Eau de Parfum</div>
+          <p>Curating hard-to-find niche fragrances that let your unique presence leave a lasting aura.</p>
+        </div>
+        <div class="footer-column">
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Reviews & Feedback</a></li>
+            <li><a href="#">Decant Guide</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; Unlimited Aura. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal" id="quizModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeQuizBtn">&times;</span>
+      <h3 class="section-title" style="margin-bottom: 15px;">Scent Quiz</h3>
+      <div id="quizStep">
+        <p style="margin-bottom: 15px;">What main impression do you want your fragrance to leave?</p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <button class="btn-add-cart quiz-option" data-recommend="woody">Mysterious & Bold</button>
+          <button class="btn-add-cart quiz-option" data-recommend="fresh">Clean & Energetic</button>
+          <button class="btn-add-cart quiz-option" data-recommend="ambery">Warm & Inviting</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var itemsList = [
+      {
+        itemId: 1,
+        maker: "Amouage",
+        title: "Interlude Man",
+        scentCategory: "woody",
+        rates: { "2ml": 12.00, "5ml": 24.00, "10ml": 42.00, "Full": 365.00 },
+        tagText: "Best Seller",
+        notesInfo: "Top: Oregano, Pepper | Heart: Amber, Incense | Base: Leather, Oud",
+        imagePath: "img/Interlude%20Man.jpg"
+      },
+      {
+        itemId: 2,
+        maker: "Maison Francis Kurkdjian",
+        title: "Grand Soir",
+        scentCategory: "ambery",
+        rates: { "2ml": 11.00, "5ml": 21.00, "10ml": 38.00, "Full": 205.00 },
+        tagText: "Popular",
+        notesInfo: "Top: Amber | Heart: Tonka Bean, Vanilla | Base: Labdanum, Benzoin",
+        imagePath: "img/Kurkdijian.jpg"
+      },
+      {
+        itemId: 3,
+        maker: "Xerjoff",
+        title: "Naxos",
+        scentCategory: "gourmand",
+        rates: { "2ml": 10.00, "5ml": 19.00, "10ml": 35.00, "Full": 245.00 },
+        tagText: "Staff Pick",
+        notesInfo: "Top: Lavender, Bergamot | Heart: Honey, Cinnamon | Base: Tobacco, Vanilla",
+        imagePath: "img/xerjoff.jpg"
+      },
+      {
+        itemId: 4,
+        maker: "Creed",
+        title: "Aventus",
+        scentCategory: "fresh",
+        rates: { "2ml": 14.00, "5ml": 28.00, "10ml": 49.00, "Full": 330.00 },
+        tagText: "Iconic",
+        notesInfo: "Top: Lemon, Pink Pepper | Heart: Pineapple, Jasmine | Base: Birch, Cedar",
+        imagePath: "img/Aventus.jpg"
+      }
+    ];
+
+    var totalItemsInCart = 0;
+
+    function showProductsOnScreen(selectedType) {
+      if (!selectedType) {
+        selectedType = "all";
+      }
+
+      var displayBox = document.getElementById('mainProductsContainer');
+      if (!displayBox) return;
+      displayBox.innerHTML = '';
+
+      for (var i = 0; i < itemsList.length; i++) {
+        var currentItem = itemsList[i];
+
+        if (selectedType === "all" || currentItem.scentCategory === selectedType) {
+          var newCard = document.createElement('div');
+          newCard.className = 'product-card';
+
+          var cardInnerHtml = '' +
+            '<span class="badge">' + currentItem.tagText + '</span>' +
+            '<div class="product-image-box">' +
+              '<img src="' + currentItem.imagePath + '" alt="' + currentItem.title + '" onerror="this.onerror=null; this.parentElement.innerText=\'[' + currentItem.title + ' Image]\';">' +
+            '</div>' +
+            '<div>' +
+              '<div class="product-brand">' + currentItem.maker + '</div>' +
+              '<h3 class="product-title">' + currentItem.title + '</h3>' +
+              '<div class="product-price" id="priceTag-' + currentItem.itemId + '">€' + currentItem.rates["2ml"].toFixed(2) + '</div>' +
+              '<div class="product-notes">' + currentItem.notesInfo + '</div>' +
+              '<div class="size-selector">' +
+                '<button class="size-btn active" onclick="updateItemPrice(' + currentItem.itemId + ', \'2ml\', this)">2ml</button>' +
+                '<button class="size-btn" onclick="updateItemPrice(' + currentItem.itemId + ', \'5ml\', this)">5ml</button>' +
+                '<button class="size-btn" onclick="updateItemPrice(' + currentItem.itemId + ', \'10ml\', this)">10ml</button>' +
+                '<button class="size-btn" onclick="updateItemPrice(' + currentItem.itemId + ', \'Full\', this)">Full</button>' +
+              '</div>' +
+            '</div>' +
+            '<button class="btn-add-cart" onclick="handleAddToCartClick()">Add to Cart</button>';
+
+          newCard.innerHTML = cardInnerHtml;
+          displayBox.appendChild(newCard);
+        }
+      }
+    }
+
+    function updateItemPrice(idNumber, chosenVolume, btnElement) {
+      for (var p = 0; p < itemsList.length; p++) {
+        if (itemsList[p].itemId === idNumber) {
+          var priceElement = document.getElementById('priceTag-' + idNumber);
+          if (priceElement) {
+            priceElement.innerText = '€' + itemsList[p].rates[chosenVolume].toFixed(2);
+          }
+          
+          var sizeButtons = btnElement.parentElement.querySelectorAll('.size-btn');
+          for (var b = 0; b < sizeButtons.length; b++) {
+            sizeButtons[b].classList.remove('active');
+          }
+          btnElement.classList.add('active');
+          break;
+        }
+      }
+    }
+
+    function handleAddToCartClick() {
+      totalItemsInCart = totalItemsInCart + 1;
+      var cartNumSpan = document.getElementById('cartCounterDisplay');
+      if (cartNumSpan) {
+        cartNumSpan.innerText = totalItemsInCart;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var categoryBoxes = document.querySelectorAll('.category-card');
+      for (var k = 0; k < categoryBoxes.length; k++) {
+        categoryBoxes[k].addEventListener('click', function() {
+          for (var j = 0; j < categoryBoxes.length; j++) {
+            categoryBoxes[j].classList.remove('active');
+          }
+          this.classList.add('active');
+          var chosenCategory = this.getAttribute('data-family');
+          showProductsOnScreen(chosenCategory);
+        });
+      }
+
+      var popupWindow = document.getElementById('quizModal');
+      var triggerQuizButton = document.getElementById('openQuizBtn');
+      var hideQuizButton = document.getElementById('closeQuizBtn');
+
+      if (triggerQuizButton && popupWindow) {
+        triggerQuizButton.onclick = function() {
+          popupWindow.style.display = "flex";
+        };
+      }
+
+      if (hideQuizButton && popupWindow) {
+        hideQuizButton.onclick = function() {
+          popupWindow.style.display = "none";
+        };
+      }
+
+      window.onclick = function(event) {
+        if (event.target === popupWindow) {
+          popupWindow.style.display = "none";
+        }
+      };
+
+      var optionButtons = document.querySelectorAll('.quiz-option');
+      for (var m = 0; m < optionButtons.length; m++) {
+        optionButtons[m].addEventListener('click', function() {
+          var suggestedType = this.getAttribute('data-recommend');
+          if (popupWindow) popupWindow.style.display = "none";
+          
+          for (var n = 0; n < categoryBoxes.length; n++) {
+            if (categoryBoxes[n].getAttribute('data-family') === suggestedType) {
+              categoryBoxes[n].click();
+            }
+          }
+          
+          document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
+        });
+      }
+
+      showProductsOnScreen("all");
+    });
+  </script>
+</body>
+</html>
