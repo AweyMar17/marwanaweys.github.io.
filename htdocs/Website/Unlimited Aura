@@ -74,7 +74,16 @@
     }
 
     .logo {
-      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 4px;
     }
 
     .logo-title {
@@ -280,24 +289,31 @@
       border-radius: 3px;
       border: 1px solid var(--accent);
       text-transform: uppercase;
+      z-index: 2;
     }
 
-    .product-image-placeholder {
+    .product-image-box {
       width: 100%;
       height: 180px;
       background-color: #121419;
-      border: 1px dashed var(--border-color);
+      border: 1px solid var(--border-color);
+      margin-bottom: 15px;
+      border-radius: 4px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 15px;
-      border-radius: 4px;
     }
 
-    .product-image-placeholder span {
-      font-family: var(--font-italic);
-      color: var(--text-secondary);
-      font-size: 1.2rem;
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.05);
     }
 
     .product-brand {
@@ -496,8 +512,11 @@
   <header>
     <div class="container nav-container">
       <div class="logo">
-        <div class="logo-title">Unlimited Aura</div>
-        <div class="logo-subtitle">Eau de Parfum</div>
+        <img src="website.jpg" alt="Unlimited Aura Logo" class="logo-img">
+        <div>
+          <div class="logo-title">Unlimited Aura</div>
+          <div class="logo-subtitle">Eau de Parfum</div>
+        </div>
       </div>
       <ul class="nav-links">
         <li><a href="#">Discoveries</a></li>
@@ -584,8 +603,13 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="logo-title">Unlimited Aura</div>
-          <div class="logo-subtitle">Eau de Parfum</div>
+          <div class="logo" style="margin-bottom: 15px;">
+            <img src="website.jpg" alt="Unlimited Aura Logo" class="logo-img">
+            <div>
+              <div class="logo-title">Unlimited Aura</div>
+              <div class="logo-subtitle">Eau de Parfum</div>
+            </div>
+          </div>
           <p>Curating hard-to-find niche fragrances that let your unique presence leave a lasting aura.</p>
         </div>
         <div class="footer-column">
@@ -642,20 +666,20 @@
         maker: "Amouage",
         title: "Interlude Man",
         scentCategory: "woody",
-        rates: { "2ml": 12.00, "5ml": 24.00, "10ml": 42.00, "Full": 325.00 },
+        rates: { "2ml": 12.00, "5ml": 24.00, "10ml": 42.00, "Full": 365.00 },
         tagText: "Best Seller",
         notesInfo: "Top: Oregano, Pepper | Heart: Amber, Incense | Base: Leather, Oud",
-        labelName: "Interlude Man"
+        imagePath: "Interlude Man.jpg"
       },
       {
         itemId: 2,
         maker: "Maison Francis Kurkdjian",
         title: "Grand Soir",
         scentCategory: "ambery",
-        rates: { "2ml": 11.00, "5ml": 21.00, "10ml": 38.00, "Full": 215.00 },
+        rates: { "2ml": 11.00, "5ml": 21.00, "10ml": 38.00, "Full": 205.00 },
         tagText: "Popular",
         notesInfo: "Top: Amber | Heart: Tonka Bean, Vanilla | Base: Labdanum, Benzoin",
-        labelName: "Grand Soir"
+        imagePath: "Kurkdijian.jpg"
       },
       {
         itemId: 3,
@@ -665,7 +689,7 @@
         rates: { "2ml": 10.00, "5ml": 19.00, "10ml": 35.00, "Full": 245.00 },
         tagText: "Staff Pick",
         notesInfo: "Top: Lavender, Bergamot | Heart: Honey, Cinnamon | Base: Tobacco, Vanilla",
-        labelName: "Naxos"
+        imagePath: "xerjoff.jpg"
       },
       {
         itemId: 4,
@@ -675,7 +699,7 @@
         rates: { "2ml": 14.00, "5ml": 28.00, "10ml": 49.00, "Full": 295.00 },
         tagText: "Iconic",
         notesInfo: "Top: Lemon, Pink Pepper | Heart: Pineapple, Jasmine | Base: Birch, Cedar",
-        labelName: "Aventus"
+        imagePath: "Aventus.jpg"
       }
     ];
 
@@ -698,8 +722,8 @@
 
           var cardInnerHtml = '' +
             '<span class="badge">' + currentItem.tagText + '</span>' +
-            '<div class="product-image-placeholder">' +
-              '<span>' + currentItem.labelName + '</span>' +
+            '<div class="product-image-box">' +
+              '<img src="' + currentItem.imagePath + '" alt="' + currentItem.title + '" class="product-img">' +
             '</div>' +
             '<div>' +
               '<div class="product-brand">' + currentItem.maker + '</div>' +
