@@ -70,7 +70,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 20px;
+      padding: 14px 20px;
     }
 
     .logo {
@@ -83,7 +83,6 @@
       height: 40px;
       width: auto;
       object-fit: contain;
-      border-radius: 4px;
     }
 
     .logo-title {
@@ -292,17 +291,17 @@
       z-index: 2;
     }
 
-    .product-image-box {
+    .product-image-container {
       width: 100%;
-      height: 180px;
+      height: 200px;
       background-color: #121419;
       border: 1px solid var(--border-color);
-      margin-bottom: 15px;
-      border-radius: 4px;
-      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      overflow: hidden;
     }
 
     .product-img {
@@ -512,7 +511,7 @@
   <header>
     <div class="container nav-container">
       <div class="logo">
-        <img src="website.jpg" alt="Unlimited Aura Logo" class="logo-img">
+        <img src="img/website.jpg" alt="Unlimited Aura Logo" class="logo-img">
         <div>
           <div class="logo-title">Unlimited Aura</div>
           <div class="logo-subtitle">Eau de Parfum</div>
@@ -603,8 +602,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="logo" style="margin-bottom: 15px;">
-            <img src="website.jpg" alt="Unlimited Aura Logo" class="logo-img">
+          <div class="logo" style="margin-bottom: 10px;">
+            <img src="img/website.jpg" alt="Unlimited Aura Logo" class="logo-img">
             <div>
               <div class="logo-title">Unlimited Aura</div>
               <div class="logo-subtitle">Eau de Parfum</div>
@@ -657,163 +656,3 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <script>
-    var itemsList = [
-      {
-        itemId: 1,
-        maker: "Amouage",
-        title: "Interlude Man",
-        scentCategory: "woody",
-        rates: { "2ml": 12.00, "5ml": 24.00, "10ml": 42.00, "Full": 365.00 },
-        tagText: "Best Seller",
-        notesInfo: "Top: Oregano, Pepper | Heart: Amber, Incense | Base: Leather, Oud",
-        imagePath: "Interlude Man.jpg"
-      },
-      {
-        itemId: 2,
-        maker: "Maison Francis Kurkdjian",
-        title: "Grand Soir",
-        scentCategory: "ambery",
-        rates: { "2ml": 11.00, "5ml": 21.00, "10ml": 38.00, "Full": 205.00 },
-        tagText: "Popular",
-        notesInfo: "Top: Amber | Heart: Tonka Bean, Vanilla | Base: Labdanum, Benzoin",
-        imagePath: "Kurkdijian.jpg"
-      },
-      {
-        itemId: 3,
-        maker: "Xerjoff",
-        title: "Naxos",
-        scentCategory: "gourmand",
-        rates: { "2ml": 10.00, "5ml": 19.00, "10ml": 35.00, "Full": 245.00 },
-        tagText: "Staff Pick",
-        notesInfo: "Top: Lavender, Bergamot | Heart: Honey, Cinnamon | Base: Tobacco, Vanilla",
-        imagePath: "xerjoff.jpg"
-      },
-      {
-        itemId: 4,
-        maker: "Creed",
-        title: "Aventus",
-        scentCategory: "fresh",
-        rates: { "2ml": 14.00, "5ml": 28.00, "10ml": 49.00, "Full": 295.00 },
-        tagText: "Iconic",
-        notesInfo: "Top: Lemon, Pink Pepper | Heart: Pineapple, Jasmine | Base: Birch, Cedar",
-        imagePath: "Aventus.jpg"
-      }
-    ];
-
-    var totalItemsInCart = 0;
-
-    function showProductsOnScreen(selectedType) {
-      if (!selectedType) {
-        selectedType = "all";
-      }
-
-      var displayBox = document.getElementById('mainProductsContainer');
-      displayBox.innerHTML = '';
-
-      for (var i = 0; i < itemsList.length; i++) {
-        var currentItem = itemsList[i];
-
-        if (selectedType === "all" || currentItem.scentCategory === selectedType) {
-          var newCard = document.createElement('div');
-          newCard.className = 'product-card';
-
-          var cardInnerHtml = '' +
-            '<span class="badge">' + currentItem.tagText + '</span>' +
-            '<div class="product-image-box">' +
-              '<img src="' + currentItem.imagePath + '" alt="' + currentItem.title + '" class="product-img">' +
-            '</div>' +
-            '<div>' +
-              '<div class="product-brand">' + currentItem.maker + '</div>' +
-              '<h3 class="product-title">' + currentItem.title + '</h3>' +
-              '<div class="product-price" id="priceTag-' + currentItem.itemId + '">€' + currentItem.rates["2ml"].toFixed(2) + '</div>' +
-              '<div class="product-notes">' + currentItem.notesInfo + '</div>' +
-              '<div class="size-selector">' +
-                '<button class="size-btn active" onclick="updateItemPrice(' + currentItem.itemId + ', \'2ml\', this)">2ml</button>' +
-                '<button class="size-btn" onclick="updateItemPrice(' + currentItem.itemId + ', \'5ml\', this)">5ml</button>' +
-                '<button class="size-btn" onclick="updateItemPrice(' + currentItem.itemId + ', \'10ml\', this)">10ml</button>' +
-                '<button class="size-btn" onclick="updateItemPrice(' + currentItem.itemId + ', \'Full\', this)">Full</button>' +
-              '</div>' +
-            '</div>' +
-            '<button class="btn-add-cart" onclick="handleAddToCartClick()">Add to Cart</button>';
-
-          newCard.innerHTML = cardInnerHtml;
-          displayBox.appendChild(newCard);
-        }
-      }
-    }
-
-    function updateItemPrice(idNumber, chosenVolume, btnElement) {
-      for (var p = 0; p < itemsList.length; p++) {
-        if (itemsList[p].itemId === idNumber) {
-          var priceElement = document.getElementById('priceTag-' + idNumber);
-          priceElement.innerText = '€' + itemsList[p].rates[chosenVolume].toFixed(2);
-          
-          var sizeButtons = btnElement.parentElement.querySelectorAll('.size-btn');
-          for (var b = 0; b < sizeButtons.length; b++) {
-            sizeButtons[b].classList.remove('active');
-          }
-          btnElement.classList.add('active');
-          break;
-        }
-      }
-    }
-
-    function handleAddToCartClick() {
-      totalItemsInCart = totalItemsInCart + 1;
-      var cartNumSpan = document.getElementById('cartCounterDisplay');
-      cartNumSpan.innerText = totalItemsInCart;
-    }
-
-    var categoryBoxes = document.querySelectorAll('.category-card');
-    for (var k = 0; k < categoryBoxes.length; k++) {
-      categoryBoxes[k].addEventListener('click', function() {
-        for (var j = 0; j < categoryBoxes.length; j++) {
-          categoryBoxes[j].classList.remove('active');
-        }
-        this.classList.add('active');
-        var chosenCategory = this.getAttribute('data-family');
-        showProductsOnScreen(chosenCategory);
-      });
-    }
-
-    var popupWindow = document.getElementById('quizModal');
-    var triggerQuizButton = document.getElementById('openQuizBtn');
-    var hideQuizButton = document.getElementById('closeQuizBtn');
-
-    triggerQuizButton.onclick = function() {
-      popupWindow.style.display = "flex";
-    };
-
-    hideQuizButton.onclick = function() {
-      popupWindow.style.display = "none";
-    };
-
-    window.onclick = function(event) {
-      if (event.target === popupWindow) {
-        popupWindow.style.display = "none";
-      }
-    };
-
-    var optionButtons = document.querySelectorAll('.quiz-option');
-    for (var m = 0; m < optionButtons.length; m++) {
-      optionButtons[m].addEventListener('click', function() {
-        var suggestedType = this.getAttribute('data-recommend');
-        popupWindow.style.display = "none";
-        
-        for (var n = 0; n < categoryBoxes.length; n++) {
-          if (categoryBoxes[n].getAttribute('data-family') === suggestedType) {
-            categoryBoxes[n].click();
-          }
-        }
-        
-        document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
-      });
-    }
-
-    showProductsOnScreen("all");
-  </script>
-</body>
-</html>
