@@ -706,46 +706,47 @@
     // A 2 ml decant and a full bottle are separate cart lines because their prices differ.
     var boughtFragrance = [];
 
-    function renderFragranceCatalog(chosenOne) {
-      if (!chosenOne) {
-        chosenOne = "all";
-      }
+  function renderFragranceCatalog(chosenOne) {
+  if (!chosenOne) {
+    chosenOne = "all";
+  }
 
-      var displayBox = document.getElementById('mainFragContainer');
-      if (!displayBox) return;
-      displayBox.innerHTML = '';
+  var displayBox = document.getElementById('mainFragContainer');
+  if (!displayBox) return;
+  displayBox.innerHTML = '';
 
-      for (var i = 0; i < fragranceCatalog.length; x++) {
-        var fragrance = fragranceCatalog[x];
+  for (var i = 0; i < fragranceCatalog.length; i++) {
+    var fragrance = fragranceCatalog[i];
 
-        if (chosenOne === "all" || fragrance.scentCategory === chosenOne) {
-          var newNote = document.createElement('div');
-          newNote.className = 'product-Note';
+    if (chosenOne === "all" || fragrance.scentCategory === chosenOne) {
+      var newNote = document.createElement('div');
+      newNote.className = 'product-Note';
 
-          var NoteInnerHtml = '' +
-            '<span class="badge">' + fragrance.collectionBadge + '</span>' +
-            '<div class="product-image-box">' +
-              '<img src="' + fragrance.bottleImage + '" alt="' + fragrance.title + '" onerror="this.onerror=null; this.parentElement.innerText=\'[" + fragrance.title + " Image]\';">' +
-            '</div>' +
-            '<div>' +
-              '<div class="product-brand">' + fragrance.maker + '</div>' +
-              '<h3 class="product-title">' + fragrance.title + '</h3>' +
-              '<div class="product-price" id="priceTag-' + fragrance.fragranceId + '">€' + fragrance.pricesBySize["2ml"].toFixed(2) + '</div>' +
-              '<div class="product-notes">' + fragrance.fragranceNotes + '</div>' +
-              '<div class="size-selector">' +
-              '<button class="size-btn active" onclick="selectFragranceSize(' + fragrance.fragranceId + ', \'2ml\', this)">2ml</button>' +
-              '<button class="size-btn" onclick="selectFragranceSize(' + fragrance.fragranceId + ', \'5ml\', this)">5ml</button>' +
-              '<button class="size-btn" onclick="selectFragranceSize(' + fragrance.fragranceId + ', \'10ml\', this)">10ml</button>' +
-              '<button class="size-btn" onclick="selectFragranceSize(' + fragrance.fragranceId + ', \'Full\', this)">Full</button>' +
-              '</div>' +
-            '</div>' +
-            '<button class="btn-add-cart" onclick="addFragranceToCart(' + fragrance.fragranceId + ', this)">Add to Cart</button>';
+      var NoteInnerHtml = '' +
+        '<span class="badge">' + fragrance.collectionBadge + '</span>' +
+        '<div class="product-image-box">' +
+          // simpler onerror that uses the img alt if the image fails
+          '<img src="' + fragrance.bottleImage + '" alt="' + fragrance.title + '" onerror="this.onerror=null; this.parentElement.innerText=\'[Image: \' + this.alt + \']\';">' +
+        '</div>' +
+        '<div>' +
+          '<div class="product-brand">' + fragrance.maker + '</div>' +
+          '<h3 class="product-title">' + fragrance.title + '</h3>' +
+          '<div class="product-price" id="priceTag-' + fragrance.fragranceId + '">€' + fragrance.pricesBySize["2ml"].toFixed(2) + '</div>' +
+          '<div class="product-notes">' + fragrance.fragranceNotes + '</div>' +
+          '<div class="size-selector">' +
+          '<button class="size-btn active" onclick="selectFragranceSize(' + fragrance.fragranceId + ', \'2ml\', this)">2ml</button>' +
+          '<button class="size-btn" onclick="selectFragranceSize(' + fragrance.fragranceId + ', \'5ml\', this)">5ml</button>' +
+          '<button class="size-btn" onclick="selectFragranceSize(' + fragrance.fragranceId + ', \'10ml\', this)">10ml</button>' +
+          '<button class="size-btn" onclick="selectFragranceSize(' + fragrance.fragranceId + ', \'Full\', this)">Full</button>' +
+          '</div>' +
+        '</div>' +
+        '<button class="btn-add-cart" onclick="addFragranceToCart(' + fragrance.fragranceId + ', this)">Add to Cart</button>';
 
-          newNote.innerHTML = NoteInnerHtml;
-          displayBox.appendChild(newNote);
-        }
-      }
+      newNote.innerHTML = NoteInnerHtml;
+      displayBox.appendChild(newNote);
     }
+  }
+}
 
     function selectFragranceSize(idNumber, chosenVolume, btnElement) {
       for (var p = 0; p < fragranceCatalog.length; p++) {
