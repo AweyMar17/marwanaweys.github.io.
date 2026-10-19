@@ -12,7 +12,7 @@
   <style>
     :root {
       --bg-body: #0c2778;
-      --bg-card: #06184d;
+      --bg-Note: #06184d;
       --text-primary: #F3F4F6;
       --text-secondary: #9CA3AF;
       --accent: #06B6D4;
@@ -23,13 +23,11 @@
       --font-body: 'Inter', sans-serif;
       --font-italic: 'Cormorant', serif;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       background-color: var(--bg-body);
       color: var(--text-primary);
@@ -38,12 +36,10 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
     a {
       color: var(--text-primary);
       text-decoration: none;
     }
-
     button {
       cursor: pointer;
       font-family: var(--font-heading);
@@ -51,13 +47,11 @@
       outline: none;
       transition: all 0.2s ease-in-out;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-
     header {
       background-color: var(--bg-body);
       border-bottom: 1px solid var(--border-color);
@@ -65,17 +59,15 @@
       top: 0;
       z-index: 100;
     }
-
     .nav-container {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-products: center;
       padding: 18px 20px;
     }
-
     .logo-wrapper {
       display: flex;
-      align-items: center;
+      align-products: center;
       gap: 12px;
     }
 
@@ -85,7 +77,7 @@
       max-width: 120px;
       object-fit: contain;
       border-radius: 4px;
-      background-color: var(--bg-card);
+      background-color: var(--bg-Note);
     }
 
     .logo {
@@ -123,7 +115,7 @@
 
     .nav-actions {
       display: flex;
-      align-items: center;
+      align-products: center;
       gap: 20px;
     }
 
@@ -160,14 +152,14 @@
       color: var(--bg-body);
     }
 
-    .hero {
+    .banner-section {
       padding: 90px 20px;
       text-align: center;
       background: radial-gradient(circle at center, rgba(6, 186, 212, 0.08) 0%, rgba(13, 14, 17, 1) 70%);
       border-bottom: 1px solid var(--border-color);
     }
 
-    .hero-tagline {
+    .banner-section-tagline {
       font-family: var(--font-italic);
       font-size: 1.4rem;
       font-style: italic;
@@ -175,7 +167,7 @@
       margin-bottom: 10px;
     }
 
-    .hero h1 {
+    .banner-section h1 {
       font-family: var(--font-headline);
       font-size: 3rem;
       text-transform: uppercase;
@@ -187,7 +179,7 @@
       color: var(--text-primary);
     }
 
-    .hero p {
+    .banner-section p {
       color: var(--text-secondary);
       max-width: 550px;
       margin: 0 auto 30px auto;
@@ -195,19 +187,19 @@
       font-weight: 300;
     }
 
-    .trust-bar {
+    .features-bar {
       display: flex;
       justify-content: space-around;
       padding: 20px 0;
       border-bottom: 1px solid var(--border-color);
-      background-color: var(--bg-card);
+      background-color: var(--bg-Note);
       font-size: 0.85rem;
       color: var(--text-secondary);
     }
 
-    .trust-item {
+    .features-scent {
       display: flex;
-      align-items: center;
+      align-products: center;
       gap: 8px;
     }
 
@@ -237,8 +229,8 @@
       gap: 20px;
     }
 
-    .category-card {
-      background-color: var(--bg-card);
+    .category-Note {
+      background-color: var(--bg-Note);
       border: 1px solid var(--border-color);
       padding: 30px 20px;
       text-align: center;
@@ -247,19 +239,19 @@
       transition: border-color 0.2s, transform 0.2s;
     }
 
-    .category-card:hover, .category-card.active {
+    .category-Note:hover, .category-Note.active {
       border-color: var(--accent);
       transform: translateY(-3px);
     }
 
-    .category-card h3 {
+    .category-Note h3 {
       font-family: var(--font-heading);
       font-size: 1.1rem;
       margin-bottom: 5px;
       color: var(--text-primary);
     }
 
-    .category-card p {
+    .category-Note p {
       font-family: var(--font-italic);
       font-size: 1.1rem;
       color: var(--text-secondary);
@@ -275,8 +267,8 @@
       gap: 25px;
     }
 
-    .product-card {
-      background-color: var(--bg-card);
+    .product-Note {
+      background-color: var(--bg-Note);
       border: 1px solid var(--border-color);
       border-radius: 6px;
       padding: 20px;
@@ -310,7 +302,7 @@
       border-radius: 4px;
       overflow: hidden;
       display: flex;
-      align-items: center;
+      align-products: center;
       justify-content: center;
       color: var(--text-secondary);
       font-size: 0.8rem;
@@ -323,7 +315,7 @@
       transition: transform 0.3s ease;
     }
 
-    .product-card:hover .product-image-box img {
+    .product-Note:hover .product-image-box img {
       transform: scale(1.05);
     }
 
@@ -426,11 +418,11 @@
       background-color: rgba(0, 0, 0, 0.85);
       z-index: 1000;
       justify-content: center;
-      align-items: center;
+      align-products: center;
     }
 
     .modal-content {
-      background-color: var(--bg-card);
+      background-color: var(--bg-Note);
       border: 1px solid var(--border-color);
       padding: 40px;
       border-radius: 8px;
@@ -449,7 +441,7 @@
     }
 
     footer {
-      background-color: var(--bg-card);
+      background-color: var(--bg-Note);
       border-top: 1px solid var(--border-color);
       padding: 60px 0 20px 0;
       font-size: 0.85rem;
@@ -514,7 +506,7 @@
       }
       .trust-bar {
         flex-direction: column;
-        align-items: center;
+        align-products: center;
         gap: 10px;
       }
     }
@@ -533,7 +525,7 @@
       </div>
       <ul class="nav-links">
         <li><a href="#catalog">Discoveries</a></li>
-        <li><a href="#catalog">travel sizess</a></li>
+        <li><a href="#catalog">travel sizes</a></li>
         <li><a href="#catalog">Full Bottles</a></li>
         <li><a href="#">About Us</a></li>
       </ul>
@@ -546,7 +538,7 @@
 
   <section class="hero">
     <div class="container">
-      <div class="hero-tagline">Authentic Niche Fragrances</div>
+      <div class="hero-tagline">Authentic Fragrances</div>
       <h1>Express Your Aura With Unique Scents</h1>
       <p>Explore high quality, handcrafted, and niche perfumes in full bottles or travel sizes (2ml, 5ml, 10ml).</p>
       <button class="btn-primary" onclick="document.getElementById('catalog').scrollIntoView({behavior: 'smooth'})">Shop The Collection</button>
@@ -554,15 +546,15 @@
   </section>
 
   <div class="trust-bar container">
-    <div class="trust-item">
+    <div class="trust-scent">
       <span>🛡️</span>
       <span>Authentic, original & verified</span>
     </div>
-    <div class="trust-item">
+    <div class="trust-scent">
       <span>🧪</span>
       <span>Custom Glass travel sizess</span>
     </div>
-    <div class="trust-item">
+    <div class="trust-scent">
       <span>✈️</span>
       <span>Global Shipping</span>
     </div>
@@ -574,23 +566,23 @@
       <p class="section-desc">Select a scent profile to filter our curated collection.</p>
 
       <div class="category-grid">
-        <div class="category-card active" data-family="all">
+        <div class="category-Note active" data-family="all">
           <h3>All Scents</h3>
           <p>Full Collection</p>
         </div>
-        <div class="category-card" data-family="woody">
+        <div class="category-Note" data-family="woody">
           <h3>Woody & Smoky</h3>
           <p>Oud, Cedar, Incense</p>
         </div>
-        <div class="category-card" data-family="warm">
+        <div class="category-Note" data-family="warm">
           <h3>Warm</h3>
           <p>Amber, Vanilla, Spice</p>
         </div>
-        <div class="category-card" data-family="fresh">
+        <div class="category-Note" data-family="fresh">
           <h3>Fresh Citrus</h3>
           <p>Bergamot, Vetiver, Sea</p>
         </div>
-        <div class="category-card" data-family="gourmand">
+        <div class="category-Note" data-family="gourmand">
           <h3>Gourmand</h3>
           <p>Coffee, Tonka, Cacao</p>
         </div>
@@ -601,7 +593,7 @@
       <h2 class="section-title">Featured Discoveries</h2>
       <p class="section-desc">Hand-picked niche selections with visual scent profiles.</p>
 
-      <div class="product-grid" id="mainProductsContainer">
+      <div class="product-grid" id="mainFragContainer">
       </div>
     </section>
 
@@ -621,7 +613,7 @@
           <p>Providing high quality niche scents that'll let your aura to linger even when afer you're not present anymore.</p>
         </div>
         <div class="footer-column">
-          <h4>Sitemap</h4>
+          <h4>Sscentap</h4>
           <ul>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Services</a></li>
@@ -656,8 +648,8 @@
     <div class="modal-content">
       <span class="close-modal" id="closeQuizBtn">&times;</span>
       <h3 class="section-title" style="margin-bottom: 15px;">Scent Quiz</h3>
-      <div id="quizStep">
-        <p style="margin-bottom: 15px;">What main impression do you want your fragrance to leave?</p>
+      <div id="scentQuiz">
+        <p style="margin-bottom: 15px;">What type impression do you want your scent to give?</p>
         <div style="display: flex; flex-direction: column; gap: 10px;">
           <button class="btn-add-cart quiz-option" data-recommend="woody">Mysterious & Bold</button>
           <button class="btn-add-cart quiz-option" data-recommend="fresh">Clean & Energetic</button>
@@ -706,31 +698,31 @@
         scentCategory: "fresh",
         pricesBySize: { "2ml": 14.00, "5ml": 28.00, "10ml": 49.00, "Full": 330.00 },
         collectionBadge: "Iconic",
-        fragranceNotes: "Top: Lemon, Pink Pepper | Heart: Pineapple, Jasmine | Base: Birch, Cedar",
+        fragranceNotes: "Top: Lemon, Pink Pepper | Heart: Pineapple, Jasmine | Base: Birch",
         bottleImage: "img/Aventus.jpg"
       }
     ];
 
     // A 2 ml decant and a full bottle are separate cart lines because their prices differ.
-    var cartLines = [];
+    var boughtFragrance = [];
 
-    function renderFragranceCatalog(selectedType) {
-      if (!selectedType) {
-        selectedType = "all";
+    function renderFragranceCatalog(chosenOne) {
+      if (!chosenOne) {
+        chosenOne = "all";
       }
 
-      var displayBox = document.getElementById('mainProductsContainer');
+      var displayBox = document.getElementById('mainFragContainer');
       if (!displayBox) return;
       displayBox.innerHTML = '';
 
-      for (var i = 0; i < fragranceCatalog.length; i++) {
-        var fragrance = fragranceCatalog[i];
+      for (var i = 0; i < fragranceCatalog.length; x++) {
+        var fragrance = fragranceCatalog[x];
 
-        if (selectedType === "all" || fragrance.scentCategory === selectedType) {
-          var newCard = document.createElement('div');
-          newCard.className = 'product-card';
+        if (chosenOne === "all" || fragrance.scentCategory === chosenOne) {
+          var newNote = document.createElement('div');
+          newNote.className = 'product-Note';
 
-          var cardInnerHtml = '' +
+          var NoteInnerHtml = '' +
             '<span class="badge">' + fragrance.collectionBadge + '</span>' +
             '<div class="product-image-box">' +
               '<img src="' + fragrance.bottleImage + '" alt="' + fragrance.title + '" onerror="this.onerror=null; this.parentElement.innerText=\'[" + fragrance.title + " Image]\';">' +
@@ -749,8 +741,8 @@
             '</div>' +
             '<button class="btn-add-cart" onclick="addFragranceToCart(' + fragrance.fragranceId + ', this)">Add to Cart</button>';
 
-          newCard.innerHTML = cardInnerHtml;
-          displayBox.appendChild(newCard);
+          newNote.innerHTML = NoteInnerHtml;
+          displayBox.appendChild(newNote);
         }
       }
     }
@@ -774,14 +766,14 @@
     }
 
     function addFragranceToCart(fragranceId, addButton) {
-      var fragrance = fragranceCatalog.find(function(item) {
-        return item.fragranceId === fragranceId;
+      var fragrance = fragranceCatalog.find(function(scent) {
+        return scent.fragranceId === fragranceId;
       });
-      var selectedSize = addButton.closest('.product-card').querySelector('.size-btn.active');
-      if (!fragrance || !selectedSize) return;
+      var chosenSize = addButton.closest('.product-Note').querySelector('.size-btn.active');
+      if (!fragrance || !chosenSize) return;
 
-      var sizeName = selectedSize.textContent.trim();
-      cartLines.push({
+      var sizeName = chosenSize.textContent.trim();
+      boughtFragrance.push({
         maker: fragrance.maker,
         title: fragrance.title,
         size: sizeName,
@@ -790,28 +782,28 @@
 
       var cartNumSpan = document.getElementById('cartCounterDisplay');
       if (cartNumSpan) {
-        cartNumSpan.innerText = cartLines.length;
+        cartNumSpan.innerText = boughtFragrance.length;
       }
     }
 
     function showCartContents() {
-      if (cartLines.length === 0) {
+      if (boughtFragrance.length === 0) {
         window.alert('Your fragrance tray is empty.');
         return;
       }
 
-      var cartTotal = cartLines.reduce(function(total, line) {
-        return total + line.price;
+      var cartSum = boughtFragrance.reduce(function(Sum, line) {
+        return Sum + line.price;
       }, 0);
-      var cartSummary = cartLines.map(function(line) {
+      var cartSummary = boughtFragrance.map(function(line) {
         return line.maker + ' ' + line.title + ' (' + line.size + ') - €' + line.price.toFixed(2);
       }).join('\n');
 
-      window.alert(cartSummary + '\n\nTotal: €' + cartTotal.toFixed(2));
+      window.alert(cartSummary + '\n\nSum: €' + cartSum.toFixed(2));
     }
 
     document.addEventListener("DOMContentLoaded", function() {
-      var categoryBoxes = document.querySelectorAll('.category-card');
+      var categoryBoxes = document.querySelectorAll('.category-Note');
       for (var k = 0; k < categoryBoxes.length; k++) {
         categoryBoxes[k].addEventListener('click', function() {
           for (var j = 0; j < categoryBoxes.length; j++) {
@@ -865,9 +857,9 @@
           document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' });
         });
       }
-
       renderFragranceCatalog("all");
     });
   </script>
 </body>
 </html>
+
